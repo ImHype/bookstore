@@ -1,0 +1,42 @@
+<%-include top%>
+<%-include sidebar%>
+		<div class="col-sm-17">
+			<span id="ct_3">我的资料</span>
+			<hr id="ct_7">
+			<div class="help-block">建议留下联系方式以提升交易成功率，如资料未通过审核，将被禁用，带*号为必填项</div>
+			<form method="post" action="/user/<%= userId%>/psw">
+				<div class="form-gruoup">
+					<ul class="fromRow clearfix">
+						<li class="left tr">
+						<b class="ct_5">*</b>旧密码：
+						</li>
+						<li class="right">
+							<input type="password" class="form-control ct_4" name="oldpassword" >
+						</li>
+					</ul>
+					<ul class="fromRow clearfix">
+						<li class="left tr">
+						<b class="ct_5">*</b>新密码：
+						</li>
+						<li class="right">
+							<input type="password" class="form-control ct_4" name="newpassword1">
+						</li>
+					</ul>
+					<ul class="fromRow clearfix">
+						<li class="left tr">
+						<b class="ct_5">*</b>确认密码：
+						</li>
+						<li class="right">
+							<input type="password" class="form-control ct_4" name="newpassword2" >
+						</li>
+					</ul>
+					<div id="submitdiv">
+						<input type="submit" class="btn ct_6" value="保存修改">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>

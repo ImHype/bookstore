@@ -1,0 +1,35 @@
+<div class="container midar">
+	<div class='row'>
+		<div id="sidebar" class="col-sm-7">
+			<ul class="phoneDropMenu setPhoneDropMenu">
+				<%
+					user_side.forEach(function(data){
+					if(data.name==sideactive){
+				%>
+					<li class='active'>
+						<a href="<%= data.url%>"> <i class="<%= data.icon%>"></i><%= data.name%></a>
+					</li>
+				<%	
+					}else{
+				%>
+					<li>
+						<a href="<%= data.url%>"> <i class="<%= data.icon%>"></i><%= data.name%></a>
+					</li>
+				<%
+					}
+					});
+				%>
+			</ul>
+		</div>
+<script>
+	$("#sidebar li.active a").bind("click",function(){
+		if($(window).width()<768){
+			$("#sidebar li").each(function(i){
+				if(/active/.test($(this).attr('class'))==false){
+					$(this).fadeToggle();
+				}
+			});
+			return false;
+		}
+	});
+</script>

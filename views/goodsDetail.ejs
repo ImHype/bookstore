@@ -1,0 +1,17 @@
+<%-include header%>
+    <div>
+        首页><%=goods.type%><%=goods.title%>
+    </div>
+    <div>
+        <b>发布日期</b><b>浏览次数：</b>
+    </div>
+    <ul>
+        <li><span>学校：</span><%=goods.school%> <span>联系人</span><%=goods.linkman%></li>
+        <li><span>电话：</span><%=goods.tel%></li>
+        <li><span>电话：</span><%=goods.qq%></li>
+    </ul>
+    <%for(var propName in goods.imgPath){%>
+        <img src="../upload/<%=goods.imgPath[propName].imgName%>">
+    <%}%>
+</body>
+</html>

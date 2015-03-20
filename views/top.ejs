@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>	
+	<meta name='viewport' content='width=device-width,initail-scale=1.0,user-scalable=no'>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+  	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<title>后台管理</title>
+	<!--[if lt IE 9]>
+	<script src="/css/html5.js"></script>
+	<script src="/css/respond.min.js"></script>
+  	<![endif]-->
+  	<script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+	<script type="text/javascript" src="/js/top.js"></script>
+</head>
+<body>
+	<div class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed navbar_toggle" type="button" data-toggle="collapse" data-target=".collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand  " href="#"><%= brand%> </a>
+        </div>
+        <div class="navbar-collapse collapse" role="navigation">
+          <ul class="nav navbar-nav navbar-right">
+            <li id="loginli">
+               <a href="<%= login.url||('/user/'+login._id)%>" id="login"><%= login.username||login.name%></a>
+            </li>
+           	<% if(login.name){%>
+            <li>
+                <a href="<%= regist.url%>"><%= regist.name%></a>
+            </li>
+            <% }%>
+            <li>
+              <a href="<%= upload.url%>" ><%= upload.name%></a>
+            </li>
+            <li class="visible-xs"><a href="<%= index.url%>"><%= index.name%></a></li>
+    		<li class="visible-xs"><a href="<%= recentupload.url%>"><%=recentupload.name%></a></li>
+    		<li class="visible-xs"><a href="<%= bookarea.url%>"><%= bookarea.name%></a></li>
+    		<li class="visible-xs"><a href="<%= otherfind.url%>"><%= otherfind.name%></a></li>
+    		<li class="visible-xs"><a href="<%= bookfriendsinfo.url%>"><%= bookfriendsinfo.name%></a></li>
+    		<% if(!login.name){%>
+    		<li><a href="javascript:void(0)" id="logout">退出</a></li>
+    		<%}%>
+            <i class='clearfix'></i>
+        </div>
+      </div>
+    </div>
+    	<div class="wrap">
+    		<div class="container content">
+	    	<ul class="nav navbar-nav secnav">
+
+	    		<li><a href="<%= index.url%>"><%= index.name%></a></li>
+	    		<li><a href="<%= recentupload.url%>"><%=recentupload.name%></a></li>
+	    		<li><a href="<%= bookarea.url%>"><%= bookarea.name%></a></li>
+	    		<li><a href="<%= otherfind.url%>"><%= otherfind.name%></a></li>
+	    		<li><a href="<%= bookfriendsinfo.url%>"><%= bookfriendsinfo.name%></a></li>
+	    		<script>
+	    			$(".secnav li").eq(<%=secnavactive%>).attr('class','active');
+	    		</script>
+	    	</ul>
+	    	<ul class="nav navbar-nav thirdnav">
+	    		<div class="input-group">
+	    			<input type="text" class="form-control">
+	    			<span class='input-group-btn'>
+	    				<button class="btn"><i class="icon-search"></i></button>
+	    			</span>
+	    		</div>
+	    	<i class='clearfix'></i>
+	    	</ul>
+	    	<i class='clearfix'></i>
+	    </div>
+    	</div>
+
+	<div class="container sliderpic">
+	    <img src="<%= index.imgsrc%>" class="img-res" alt="">
+	</div>
+	<div class="sliderul">
+		<div class="container">
+		    <ul class="slider">
+		    	<li id="border_first" class='active'></li>
+		    	<li></li>
+		    	<li></li>
+		    	<li></li>
+		    	<li></li>
+		    	<i class='clearfix'></i>
+		    </ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$("#logout").bind("click",function(){
+			$.get("/logout",function(text){
+				if(text == true){
+					$("#login").html("登录").attr("href","/login");
+					$("#loginli").after("<li><a href=\"<%= regist.url%>\"><%= regist.name%></a></li>");
+					$("#logout").css("display","none");
+				}
+			});
+		});
+	</script>

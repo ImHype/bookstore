@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>首页</title>
+    <link href="/stylesheets/differ.css" rel="stylesheet">
+    <script src="/javascripts/html5.js"></script>
+</head>
+<body>
+<section class="header-wrap">
+    <header class="header">
+        <div><%if(!user){%>
+                <a href="/reg">注册</a> | <a href="/login">登录</a>
+            <%}%>
+            <%if(user){%>
+            <span><%=user.name%></span>| <a href="/logout">退出</a>
+            <%}%>
+        </div>
+
+        <section class="clearfix">
+            <a href="/"></a>
+            <form>
+                <input type="search">
+                <input type="submit" value="快速搜索">
+            </form>
+            <div>
+                <h2>热门</h2>
+                <a href="#">手机</a>
+                <a href="#">三星</a>
+                <a href="#">自行车</a>
+                <a href="#">自习习题库</a>
+            </div>
+        </section>
+        <nav class="clearfix">
+            <a href="/">首页</a>
+            <a href="#">书籍文具</a>
+            <a href="#">手机电脑</a>
+            <a href="#">单车交通</a>
+            <a href="#">体育乐器</a>
+            <a href="#">生活其它</a>
+            <a href="#">求购专区</a>
+            <a href="#">校园服务</a>
+            <a href="#">大学列表</a>
+            <a href="/upload">发布</a>
+        </nav>
+        <div class="banner">
+            <a href=""><img src="../images/banner/2015012752418961.png"></a>
+            <a href=""><img src="../images/banner/2014053100119854.jpg"></a>
+        </div>
+    </header>
+</section>
+<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="/javascripts/user.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

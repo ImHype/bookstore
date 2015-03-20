@@ -1,0 +1,11 @@
+<%-include header%>
+<form method="post" id="post">
+    <ul>
+        <li><lable for="pwd">密码</lable>新的登录密码<input type="password" id="pwd" name="pwd"></li>
+        <li><lable for="pwdr"></lable>确认新的登录密码<input type="password" id="pwdr" name="pwdr"></li>
+        <li><input type="submit"></li>
+        <li><%if(error){%>
+                  <%=error%>
+            <%}%></li>
+    </ul>
+</form>

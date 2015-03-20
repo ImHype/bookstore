@@ -1,0 +1,9 @@
+<%-include header%>
+<form id="userForm" method="post">
+   <label for="username">请填写您的账号名：</label><input type="text" name="username" id="username">
+    <input type="submit" value="下一步">
+    <%if(error){%>
+        <p><%=error%></p>
+    <%}%>
+
+</form>

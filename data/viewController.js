@@ -1,0 +1,37 @@
+var viewController = {
+  brand:"bookshop".toUpperCase(),
+  login:{
+    url:'/login',
+    name:'登录'
+  },
+  regist:{
+    url:'/regist',
+    name:'注册'
+  },
+  upload:{
+    url:'/uploadpage',
+    name:'上传'
+  },
+  index:{
+    url:"/",
+    name:'首页',
+    imgsrc:['/img/mxcp1200-300._V331174301_.png']
+  },
+  recentupload:{
+    url:'/recentupload',
+    name:'最近上传'
+  },
+  bookarea:{
+    url:'/bookarea',
+    name:'课本专区'
+  },
+  otherfind:{
+    url:'/otherfind',
+    name:'其他类别'
+  },
+  bookfriendsinfo:{
+    url:'/bookfriendsinfo',
+    name:'书友推荐'
+  }
+}
+module.exports = viewController;

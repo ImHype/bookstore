@@ -1,0 +1,65 @@
+<%-include header%>
+    <section class="front-publish-a">
+        <div>
+            <h2>最新</h2>
+
+            <ul>
+                <li><a href="/upload">aaa</a></li>
+                <%newPublish.forEach(function(res,index){%>
+                    <li><span><%=res.school%></span><a href="/goodsDetail?id=<%=res._id%>"><%=res.title%></a></li>
+                <%})%>
+            </ul>
+        </div>
+        <div>
+            <h2>推荐</h2>
+            <ul>
+                <li><a href="/upload">aaa</a></li>
+                <%tuijian.forEach(function(res,index){%>
+                    <li><span><%=res.school%></span><a href="/goodsDetail?id=<%=res._id%>"><%=res.title%></a></li>
+                <%})%>
+            </ul>
+        </div>
+        <div>
+            <h2>热门</h2>
+            <ul>
+                <li><a href="/upload">aaa</a></li>
+                <%remen.forEach(function(res,index){%>
+                    <li><span><%=res.school%></span><a href="/goodsDetail?id=<%=res._id%>"><%=res.title%></a></li>
+                <%})%>
+            </ul>
+        </div>
+    </section>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

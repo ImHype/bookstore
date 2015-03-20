@@ -1,0 +1,61 @@
+<%-include top%>
+
+    <div class="regist" style="padding-top:15px;">
+            <form id="comment_form" method="post" action="/uploadpage" enctype="multipart/form-data">
+                <fieldset>
+                    <div class="">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <select name="school" class="form-control">
+                                    <option value="0">选择学校</option>
+                                    <option value="成都大学">成都大学</option>
+                                    <option value="成都理工大学">成都理工大学</option>
+                                    <option value="四川大学">四川大学</option>
+                                    <option value="西南财经大学">西南财经大学</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="bookname" placeholder="书名">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="class" placeholder="专业">
+
+                            </div>
+                            <div class="form-group" name="grade">
+                                <select name="grade" class="form-control">
+                                    <option value="1">大一</option>
+                                    <option valye="2">大二</option>
+                                    <option va;ue="3">大三</option>
+                                    <option value=4>大四</option>
+                                </select>
+                            </div>
+                            <div class='form-group'>
+                                <input type="file" name="file" class="form-control" style="width:50%;">
+                                <!--<a href="javascript:void(0)" class="btn btn-info btn-block" style="width:50%;">传图片</a>
+                                <a style="position:absolute;top:0;right:0;width:50%;display:block;border:1px solid #ccc;height:34px;">aaaa</a>-->
+                            </div>
+                            <div id="notice"></div>
+                            
+                        </div>
+                        <div class="col-sm-12">
+                            <textarea style="height:240px;margin-bottom:10px;" name="info" class="form-control"></textarea>
+                        </div>
+                        <i class='clearfix'></i>
+                        <div class="container-fluid">
+                            <input type="submit" class="btn btn-danger" value="上传">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+            <% console.log(login.username==undefined);
+            if(login.username==undefined){%>
+                <script>
+                    $("#comment_form").bind("submit",function(){
+                        $("#notice").html("未<a href='/login'>登录</a>，无法提交");
+                        return false;
+                    });
+                </script>
+            <%}%>
+            
+   

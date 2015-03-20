@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>首页</title>
+    <link href="../../stylesheets/differ.css" rel="stylesheet">
+    <script src="../../javascripts/html5.js"></script>
+</head>
+<body>
+<div id="userList">
+    <!--add-->
+    <div class="tab-form" id="addForm">
+        <span>用户表</span>
+        <form>
+            <ul>
+                <li><label for="username">用户名</label><input id="username" name="username" type="text"></li>
+                <li><label for="password">密码</label><input id="password" name="password" type="password"></li>
+                <li><label for="email">邮箱</label><input id="email" name="email" type="email"></li>
+                <li><input type="button" class="tab-submit" value="提交"><input class="tab-cancel" type="button" value="取消"></li>
+            </ul>
+        </form>
+    </div>
+    <!--edit-->
+    <div class="tab-form" id="editForm">
+        <span>用户表</span>
+        <form>
+            <ul>
+                <li>
+                    <label for="username">用户名</label><input id="editUsername" name="editUsername" type="text">
+                </li>
+                <li>
+                    <label for="password">密码</label><input id="editPassword" name="editPassword" type="password">
+                </li>
+                <li>
+                    <label for="email">邮箱</label><input id="editEmail" name="editEmail" type="email">
+                </li>
+                <li>
+                    <input type="button" class="tab-submit" value="提交"><input class="tab-cancel" type="button" value="取消">
+                </li>
+            </ul>
+        </form>
+        <div></div>
+    </div>
+    <table>
+        <tr class="tr-one" ><td colspan="6">用户</td></tr>
+        <tr>
+            <td colspan="6" class="td-two">
+                <input type="button" id="back-add" value="添加">
+                <span id="search"><input  type="text" value="<%=search%>"><a href="#">搜索</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tdPage">编号</td><td class="tdUsername">用户名</td>
+            <td class="tdPassword">密码</td><td class="tdEmail">邮箱</td><td class="tdSex">性别</td><td class="tdEdit">操作</td>
+        </tr>
+    </table>
+    <table class="Mcycle">
+        <%docs.forEach(function(docs,index){%>
+        <tr>
+            <td class="tdPage"><%=(page-1)*10+index%></td>
+            <td class="tdUsername"><%=docs.name%></td>
+            <td class="tdPassword"><%=docs.password%></td>
+            <td class="tdEmail"><%=docs.email%></td>
+            <td class="tdSex">男</td>
+            <td class="tdEdit"><a href="#" id="useredit">编辑/</a><a href="#" id="userremove">删除</a></td>
+        </tr>
+        <% })%>
+    </table>
+    <section>
+        <%if(!isFirstPage){%>
+        <a href="?page=<%=page-1%>&search=<%=search%>">上一页</a>
+        <%}%>
+        <%if(!isLastPage){%>
+        <a href="?page=<%=page+1%>&search=<%=search%>">下一页</a>
+        <%}%>
+        <span>第<input type="text" value=<%=page%> id="sub-page">页</span>
+    </section>
+</div>
+<script src="../../javascripts/jquery.js"></script>
+<script src="../../javascripts/jquery-dragMove.js"></script>
+<script src="../javascripts/user.js"></script>
+</body>
+</html>

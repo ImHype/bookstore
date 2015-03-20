@@ -1,0 +1,22 @@
+<%-include top%>
+<%-include sidebar%>
+		<div class="col-sm-17">
+			<span id="ct_3">我的小店</span>
+			<hr id="ct_7">
+			<div id="ct_8">
+				<ul class="tabsNav">
+					<%console.log(kind);%>
+					<% isOnli.forEach(function(name){%>
+						<li <%if(kind==name.kind){%>class='active'<%}%>><a href="?kind=<%= name.kind%>"><%= name.name%></a></li>
+					<%})%>
+					<i class='clearfix'></i>
+				</ul>
+				<div class="container-fluid">
+					<h4><a href="">你好，新人</a></h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

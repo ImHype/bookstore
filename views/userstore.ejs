@@ -1,0 +1,69 @@
+<%-include top%>
+<%-include sidebar%>
+		<div class="col-sm-17">
+			<span id="ct_3">我的小店</span>
+			<hr id="ct_7">
+			<div id="ct_8">
+				<ul class="tabsNav">
+					<%console.log(kind);%>
+					<% isOnli.forEach(function(name){%>
+						<li <%if(kind==name.kind){%>class='active'<%}%>><a href="?kind=<%= name.kind%>"><%= name.name%></a></li>
+					<%})%>
+					<i class='clearfix'></i>
+				</ul>
+				<div class="container-fluid">
+					<% booklist.forEach(function(data){%>
+					<div class="row ct_3">
+						<div class="pull-left">
+							<img class="img-responsive img-thumbnail ct_2" src="<%= data.booksrc%>">
+						</div>
+						<div class="pull-left ct_1">
+							<a href=""><%= data.bookname%></a><br>
+							<span>状态：</span>
+							<span id="status">
+								<% if(data.isOn==true){%>
+									上架中
+								<%}else{%>
+									已下架
+								<%}%>
+							</span>
+						</div>
+						<div style="position:absolute;right:0;top:45px;">
+							<% if(data.isOn==true){%>
+								<a href="javascript:void(0)" data-url="<%=data._id%>" class="btn btn-info downbtn" >下架</a>
+							<%}else{%>
+								<a href="javascript:void(0)" data-url="<%=data._id%>" class="btn btn-info upbtn" >上架</a>
+							<%}%>
+						</div>
+					</div>
+					<% })%>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var userId = '<%=login._id%>';
+	$(".downbtn").on('click',function(){
+		var _this=this;
+		change(false,'btn btn-info upbtn','上架',_this,"已下架");
+	});
+	$(".upbtn").on('click',function(){
+		var _this=this;
+		change(true,'btn btn-info downbtn','下架',_this,"上架中");
+	});
+
+	function change(state,newclass,newtxt,obj,status){
+		var bookid = $(obj).data('url');
+		$.post('/user/'+userId+'/mystore',{
+			_id:bookid,
+			open:state
+		},function(txt){
+			obj.className=newclass;
+			obj.innerHTML=newtxt;
+			$('#status').html(status);
+		});
+	}
+</script>
+</body>
+</html>

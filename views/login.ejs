@@ -1,0 +1,49 @@
+<%-include top%>
+<div class='regist '>
+	<div class="">
+		<div class="col-sm-18">
+			<h3>用户登录</h3>
+				<div class='form-group'>
+					<input class='form-control' name="username" id="username">
+					<div class='help-block'>您注册时填写的账号</div>
+				</div>
+				<div class='form-group'>
+					<input type="password" name="password" id="password" class='form-control'>
+					<div class='help-block'>请6-24位字母或数字</div>
+				</div>
+				<input type="button" id="submit" class="btn btn-large btn-danger"value="登录">
+				<div id="notice"></div>
+		</div>
+		<div class="col-sm-6 panel-right">
+			免费注册成为新的用户
+			<br>
+			已有账号？点击马上<a href="<%=regist.url%>"><%=regist.name%></a>!
+		</div>
+		<i class='clearfix'></i>
+	</div>	
+</div>	
+<script>
+	$("#submit").bind("click",function(){
+		$.post("/login",{
+			username:$("#username").val(),
+			password:$("#password").val(),
+		},function(text){
+			if(text=="登录成功"){
+				var time = 3;
+				$("#notice").html(text+"<span id='time'>3</span>秒后自动<a href='/'>跳转</a>");
+				var timer = setInterval(function(){
+					time--;
+					$("#time").html(time);
+					if(time==0){
+						clearInterval(timer);
+						window.location="/"
+					}
+				},1000);
+			}else{
+				$("#notice").html(text);
+			}	
+		})
+	});
+</script>
+</body>
+</html>

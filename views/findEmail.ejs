@@ -1,0 +1,8 @@
+<%-include header%>
+<form method="post" id="userForm">
+    <label for="email">请填写您的邮箱：</label><input type="text" name="email" id="email">
+    <input type="submit" value="下一步">
+    <%if(error){%>
+    <p><%=error%></p>
+    <%}%>
+</form>
